@@ -15,6 +15,10 @@ import Navbar from './components/navbar';
 import Layout from './components/Layout';
 import Courses from './page/Courses';
 import VideoClass from './page/VideoClass';
+import LMS from './page/LMS'
+import ChatBot from './components/chatbot'
+import Profile from './page/Profile';
+
 
 function App() {
   
@@ -40,7 +44,10 @@ function App() {
       </Canvas> */}
       {/* <Navbar /> */}
       {/* <Courses /> */}
-      <VideoClass />
+      {/* <VideoClass /> */}
+      {/* <LMS/> */}
+      <ChatBot/>
+      <Profile name='Suraj Shah' email='surajshah.bombay@gmail.com'/>
     </div>
   );
 }
