@@ -11,15 +11,15 @@ export default function Navbar(props) {
                 <NavbarIcon />
                 <NavbarItem
                     name="Home" 
-                    icon={<AiFillHome color="#888" fontSize={20} />}/>
+                    icon={<AiFillHome color="#444444" fontSize={20} />}/>
                 <NavbarItem 
-                    icon={<AiFillRead color="#888" fontSize={20} />}
+                    icon={<AiFillRead color="#444444" fontSize={20} />}
                     name="Courses" />
                 <NavbarItem 
-                    icon={<AiFillSchedule color="#888" fontSize={20} />}
+                    icon={<AiFillSchedule color="#444444" fontSize={20} />}
                     name="Assignment" />
                 <NavbarItem 
-                    icon={<AiFillHome color="#888" fontSize={20} />}
+                    icon={<AiFillHome color="#444444" fontSize={20} />}
                     name="Test" />
             </div>
 

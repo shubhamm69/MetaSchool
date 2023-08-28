@@ -24,21 +24,21 @@ const events = [
 
 const sampleData = [
     {
-      day: "2023-01-01",
-      activity: 5
+        day: "2023-01-01",
+        activity: 5
     },
     {
-      day: "2023-01-02",
-      activity: 1
+        day: "2023-01-02",
+        activity: 1
     }
-  ]
-  const colorCustomization = {
+]
+const colorCustomization = {
     activity0: '#dadada',
     activity1: '#0e4429',
     activity2: '#006d32',
     activity3: '#26a641',
     activity4: '#39d353',
-  } 
+}
 function Course(props) {
     var colors = [["#8629B6", "#2F0A73"], ["#9F3607", "#611A03"],
     ["#717083", "#272337"], ["#009933", "#004d1a"]]
@@ -62,29 +62,28 @@ export default function Courses(props) {
     return (
         <Layout title="Courses">
             <div className="coursepage">
-                <div style={{width:"70%"}}>
-
-                <div className="courselist">
-                    <Course name="CPP" />
-                    <Course name="Mathematics" />
-                    <Course name="Science" />
-                    <Course name="SSt" />
-                    <Course name="English" />
-                    <Course name="Hindi" />
-                    <Course name="Sanskrit" />
+                <div style={{ width: "70%" }}>
+                    <div className="courselist">
+                        <Course name="CPP" />
+                        <Course name="Mathematics" />
+                        <Course name="Science" />
+                        <Course name="SSt" />
+                        <Course name="English" />
+                        <Course name="Hindi" />
+                        <Course name="Sanskrit" />
+                    </div>
+                    <h3 style={{ textAlign: "left" }}>Activity Tracker</h3>
+                    <ActivityCalendar colorCustomization={colorCustomization} sampleData={sampleData} />
                 </div>
-                <h3 style={{textAlign:"left"}}>Activity Tracker</h3>
-                    <ActivityCalendar colorCustomization={colorCustomization} sampleData={sampleData}/>
+                <div className="calendarplanning">
+                    <Calendar
+                        localizer={localizer}
+                        events={events}
+                        startAccessor="start"
+                        endAccessor="end"
+                        style={{ height: 500, width: 450}}
+                    />
                 </div>
-            <div className="calendarplanning">
-                <Calendar
-                    localizer={localizer}
-                    events={events}
-                    startAccessor="start"
-                    endAccessor="end"
-                    style={{ height: 500 }}
-                />
-            </div>
             </div>
         </Layout>
     )

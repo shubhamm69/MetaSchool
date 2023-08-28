@@ -15,6 +15,8 @@ import Navbar from './components/navbar';
 import Layout from './components/Layout';
 import Courses from './page/Courses';
 import VideoClass from './page/VideoClass';
+import TeacherView from './page/TeacherView';
+import Course from './page/Course';
 
 function App() {
   
@@ -38,9 +40,13 @@ function App() {
         <primitive object={bush} scale={0.05} />
         <OrbitControls />
       </Canvas> */}
-      {/* <Navbar /> */}
+      <div style={{display:"flex", width: "100vw", backgroundColor:"black"}}>
+
+      <Navbar />
       {/* <Courses /> */}
-      <VideoClass />
+      <TeacherView />
+      {/* <Course /> */}
+      </div>
     </div>
   );
 }

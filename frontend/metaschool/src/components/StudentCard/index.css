@@ -1,0 +1,39 @@
+.studentcard{
+    border-radius: 10px;
+    background-color: #282c34;
+    /* padding: 5px; */
+    /* height: 50px; */
+    display: flex;
+    min-width: 500px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    justify-content: space-between;
+    text-align: left;
+    transition-duration: 500ms;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align: left;
+}
+
+.studentcard:hover {
+    background-color: #109f34;
+}
+
+.studentcard > div > p:nth-child(2){
+    margin-top: -15px;
+}
+
+.studentcard > div:nth-child(1) > p:nth-child(1){
+    font-weight: 700;
+}
+.studentcard > div:nth-child(1) > p:nth-child(2){
+    color: #ffffff60;
+}
+.studentcard > div:nth-child(2) > p:nth-child(1){
+    color: #ffffff60;
+}
+.studentcard > div:nth-child(2) > p:nth-child(2){
+    color: #ffffff60;
+}

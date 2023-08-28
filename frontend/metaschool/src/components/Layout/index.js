@@ -7,8 +7,12 @@ export default function Layout(props) {
         <div className="layout">
             <header className="header">
                 <h1>{props.title}</h1>
+                {props.headers}
             </header>
+            <div style={{paddingRight: 20, paddingLeft: 20, width: "70vw"}}>
+
             {props.children}
+            </div>
             {/* <Progress />
             <section className="createclass">
 <h3>Add course timing</h3> 

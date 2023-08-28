@@ -50,8 +50,3 @@
 .rbc-toolbar button:active, .rbc-toolbar button.rbc-active{
     background-color: #109f34;
 }
-
-.ac-item {
-    width: 1rem !important;
-    height: 1rem !important;
-}

@@ -1,0 +1,22 @@
+.buttoncard{
+    display: flex;
+    width: fit-content;
+    margin: 2px;
+    height: fit-content;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: #109f34;
+    transition-duration: 500ms;
+    margin-bottom: 10px;
+}
+
+.buttoncard > p {
+    font-size: 14px;
+    margin-left: 5px;
+}
+.buttoncard:hover {
+    background-color: #20b144;
+}
