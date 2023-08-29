@@ -947,7 +947,7 @@ h3{
   transition: 0.3s;
   font-size: 14px;
   text-overflow: ellipsis;
-  width: 29vw;
+  width: 360px;
 }
 
 .videoThumbnail:hover{
@@ -968,8 +968,9 @@ h3{
 }
 
 .videoImage{
-  width: 28vw;
-  height: 15.75vw;
+  width: 350px;
+  border-radius: 10px;
+  height: 200px;
 }
 
 .duration{
@@ -981,7 +982,6 @@ h3{
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap; 
-
 }
 
 /* ChatBot */
@@ -1178,4 +1178,47 @@ h2{
 
 .profileMain{
   display: flex;
+}
+
+.quizcontainer{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.mcqchoice {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  padding-left: 25px;
+  margin-bottom: 20px;
+  background-color: #444;
+  border-radius: 20px;
+  transition-duration: 250ms;
+}
+
+.mcqchoice:hover {
+  background-color: #333;
+
+}
+
+.circleindicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #109f34;
+  margin-right: 20px;
+  border: 1px solid #333;
+}
+
+.quizbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #444;
+  width: 45%;
+  border-radius: 20px;
+}
+
+.quizbutton:hover {
+  background-color: #333;
 }
