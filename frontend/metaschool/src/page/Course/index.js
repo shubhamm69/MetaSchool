@@ -3,20 +3,26 @@ import React, { useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { useGLTF, useAnimations, OrbitControls, useScroll } from '@react-three/drei'
+import { Link } from "react-router-dom";
 
 import ButtonCard from "../../components/ButtonCard";
 import ModuleCard from "../../components/ModuleCard";
 import { AiFillVideoCamera, AiOutlineClockCircle } from "react-icons/ai";
 import ModuleOverview from "../../components/ModuleOverview";
+import Navbar from "../../components/navbar";
 
 export default function Course(props) {
     const [module, setModule] = useState("");
     const [wid, setWidth] = useState(0);
 
     return (
+        <div style={{display: 'flex', flexDirection: 'row'}}>
+        <div style={{width: '10vw', marginRight: '9vw'}}>
+            <Navbar/>
+        </div>
         <Layout title="Course 101" headers={
             <div style={{ display: "flex" }}>
-                <ButtonCard icon={<AiFillVideoCamera fontSize={20} color='white' />} title="Join Class" />
+                <Link to='/videocall'><ButtonCard icon={<AiFillVideoCamera fontSize={20} color='white' />} title="Join Class" /></Link>
             </div>
         }>
             <div style={{ display: "flex" }} >
@@ -48,6 +54,8 @@ export default function Course(props) {
             </div>  
             <ModuleOverview width={wid} module={module} setWidth={setWidth}/>
         </Layout>
+        </div>
+        
     )
 }
 

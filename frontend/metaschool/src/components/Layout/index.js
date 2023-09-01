@@ -1,15 +1,21 @@
 import Progress from "../Progressbar";
+import Navbar from "../navbar";
 
 import { AiOutlineArrowRight } from 'react-icons/ai'
 
 export default function Layout(props) {
     return (
+        // <div style={{display: 'flex', flexDirection: 'row'}}>
+        // <div style={{width: '10vw', marginRight: '6vw'}}>
+        //     <Navbar/>
+        // </div>
         <div className="layout">
+            
             <header className="header">
                 <h1>{props.title}</h1>
                 {props.headers}
             </header>
-            <div style={{paddingRight: 20, paddingLeft: 20, width: "70vw"}}>
+            <div style={{paddingRight: 20, paddingLeft: 20, width: "80vw"}}>
 
             {props.children}
             </div>
@@ -28,7 +34,9 @@ export default function Layout(props) {
                 Friday class timing:
                 <input type="time" /> */}
             {/* </section> */}
+        {/* </div> */}
         </div>
+        
     )
 }
 

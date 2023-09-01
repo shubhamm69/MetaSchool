@@ -1,6 +1,7 @@
 import NavbarBottom from "./NavbarBottom";
 import NavbarIcon from "./NavbarIcon";
 import NavbarItem from "./NavbarItem";
+import { Outlet, Link } from "react-router-dom";
 
 import { AiFillHome, AiFillRead, AiFillSchedule, AiFillSetting, AiOutlineLogout } from "react-icons/ai";
 
@@ -10,17 +11,17 @@ export default function Navbar(props) {
             <div>
                 <NavbarIcon />
                 <NavbarItem
-                    name="Home" 
+                    name="Courses" 
                     icon={<AiFillHome color="#444444" fontSize={20} />}/>
                 <NavbarItem 
                     icon={<AiFillRead color="#444444" fontSize={20} />}
-                    name="Courses" />
+                    name="Course" />
                 <NavbarItem 
                     icon={<AiFillSchedule color="#444444" fontSize={20} />}
-                    name="Assignment" />
+                    name="Profile" />
                 <NavbarItem 
                     icon={<AiFillHome color="#444444" fontSize={20} />}
-                    name="Test" />
+                    name="Teacher" />
             </div>
 
             <div>

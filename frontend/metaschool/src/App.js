@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import { useMemo } from 'react';
+import React from 'react';
+import * as ReactDOM from "react-dom/client";
 import './App.css';
 import { extend, useLoader } from '@react-three/fiber'
 import * as THREE from "three";
@@ -22,44 +24,62 @@ import ChatBot from './components/chatbot'
 import Profile from './page/Profile';
 import Login from './page/Login';
 import Quiz from './page/Quiz';
+import AvatarMaker from './page/AvatarMaker';
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login/>,
+  },
+  {
+    path: "/course",
+    element: <Course/>  
+  },
+  {
+    path: "/courses",
+    element: <Courses/>  
+  },
+  {
+    path: "/profile",
+    element: <Profile/>  
+  },
+  {
+    path: "/teacher",
+    element: <TeacherView/>  
+  },
+  {
+    path: "/videocall",
+    element: <VideoClass/>
+  },
+  {
+    path: '/lms',
+    element: <LMS/>
+  },
+  {
+    path: '/quiz',
+    element: <Quiz/>
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
 
 
 function App() {
   
-  const BasicMaterial = new  THREE.MeshBasicMaterial({color: new THREE.Color("#520B3E")})
-
-  const treeMaterial = useLoader(MTLLoader, "tree.mtl");
-  const tree = useLoader(OBJLoader, "tree.obj", (loader) => {
-    treeMaterial.preload();
-    loader.setMaterials(treeMaterial);
-  })
-  const bush = useFBX("BushSmall.fbx")
   return (
     <div className="App">
-      {/* <Canvas
-        shadows
-        className={"canvas"}
-        camera={{
-          position: [6,6,7],
-      }}>
-        <ambientLight intensity={5} /> 
-        <primitive object={bush} scale={0.05} />
-        <OrbitControls />
-      </Canvas> */}
       <div style={{display:"flex", width: "100vw", backgroundColor:"black"}}>
-
-      {/* <Navbar /> */}
-      {/* <Courses /> */}
-      {/* <TeacherView /> */}
-      {/* <Course /> */}
-      {/* <VideoClass /> */}
-      {/* <LMS/> */}
-      {/* <ChatBot/> */}
-      {/* <Profile name='Suraj Shah' email='surajshah.bombay@gmail.com'/> */}
-      <Login/>
-      {/* <Quiz /> */}
+      
+      <RouterProvider router={router} />
       </div>
-    </div>
+      </div>
+    
   );
 }
 

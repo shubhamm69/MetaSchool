@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "./index.css";
+import Navbar from "../../components/navbar";
 
 import { ActivityCalendar } from 'activity-calendar-react'
 
@@ -60,6 +61,10 @@ function Course(props) {
 
 export default function Courses(props) {
     return (
+        <div style={{display: 'flex', flexDirection: 'row'}}>
+        <div style={{width: '10vw', marginRight: '9vw'}}>
+            <Navbar/>
+        </div>
         <Layout title="Courses">
             <div className="coursepage">
                 <div style={{ width: "70%" }}>
@@ -86,5 +91,6 @@ export default function Courses(props) {
                 </div>
             </div>
         </Layout>
+        </div>
     )
 }

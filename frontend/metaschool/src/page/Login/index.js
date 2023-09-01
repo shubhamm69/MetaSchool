@@ -3,9 +3,16 @@ import {Canvas} from '@react-three/fiber'
 import {Suspense} from 'react'
 import {useGLTF, useAnimations, OrbitControls, useScroll} from '@react-three/drei'
 import CameraPositionLogger from '../../helpers/CameraPosition'
-import {GoogleLogin} from 'react-google-login'
-import axios from 'axios';
+import { Environment } from '@react-three/drei'
+import { useLoader } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
+function Scene() {
+    const gltf = useLoader(GLTFLoader, '/avaturn_demo_avatar.glb')
+    return <primitive object={gltf.scene} />
+  }
+
+ 
 
 function Login() {
     const [module, setModule] = useState("");
@@ -15,7 +22,7 @@ function Login() {
     return (
         <div className='loginMain'>
             <div className='Avatar'>
-                <Canvas style={
+                {/* <Canvas style={
                         {
                             height: 400,
                             zIndex: 1000
@@ -29,17 +36,32 @@ function Login() {
                             position: [215, 222, -9]
                         }
                 }>
-                    <Suspense fallback={null}>
-                        <ambientLight intensity={5}/>
-                        <pointLight position={
-                                [0, 2, 2]
-                            }
-                            intensity={10}/>
-                        <Model/>
-                    </Suspense>
+                        <Suspense fallback={null}>
+                            <Model />
+                            {/* <Environment preset="sunset" background /> 
+                        </Suspense>
                     <OrbitControls/>
                     <CameraPositionLogger event='mousedown'/>
-                </Canvas>
+                </Canvas> */}
+
+                 <Canvas
+         camera={{ position: [2, 7, 12.25], fov: 15 }}
+         style={{
+            backgroundColor: 'transparent',
+            width: '30vw',
+            height: '70vh',
+            zIndex: 1000
+         }}
+      >
+         <ambientLight intensity={5} />
+         <ambientLight intensity={5} />
+         <directionalLight intensity={5} />
+         <Suspense fallback={null}>
+            <Scene/>
+         </Suspense>
+         <OrbitControls />
+      </Canvas>
+      
                 <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                     style={
                         {
@@ -83,6 +105,7 @@ function Login() {
                 </svg>
             </div>
             <div className='login'>
+                
                 <h1>Login</h1>
                 <div>
                     <h5 style={
@@ -233,18 +256,134 @@ export default Login
 
 // useGLTF.preload('/pakan.glb')
 
-function Model(props) {
-    const { nodes, materials } = useGLTF('/avaturn_demo_avatar.glb')
+export function Model(props) {
+  const { nodes, materials } = useGLTF("/avaturn_demo_avatar.glb");
+  return (
+    <group {...props} dispose={null}>
+      <primitive object={nodes.Hips} />
+      <skinnedMesh
+        geometry={nodes.avaturn_body.geometry}
+        material={materials.avaturn_body_material}
+        skeleton={nodes.avaturn_body.skeleton}
+      />
+      <skinnedMesh
+        geometry={nodes.avaturn_hair_0.geometry}
+        material={materials.avaturn_hair_0_material}
+        skeleton={nodes.avaturn_hair_0.skeleton}
+      />
+      <skinnedMesh
+        geometry={nodes.avaturn_hair_1.geometry}
+        material={materials.avaturn_hair_1_material}
+        skeleton={nodes.avaturn_hair_1.skeleton}
+      />
+      <skinnedMesh
+        geometry={nodes.avaturn_shoes_0.geometry}
+        material={materials.avaturn_shoes_0_material}
+        skeleton={nodes.avaturn_shoes_0.skeleton}
+      />
+      <skinnedMesh
+        geometry={nodes.avaturn_look_0.geometry}
+        material={materials.avaturn_look_0_material}
+        skeleton={nodes.avaturn_look_0.skeleton}
+      />
+    </group>
+  );
+}
+
+useGLTF.preload("/avaturn_demo_avatar.glb");
+
+
+function Neha(props) {
+    const { nodes, materials } = useGLTF("/neha.glb");
     return (
       <group {...props} dispose={null}>
         <primitive object={nodes.Hips} />
-        <skinnedMesh geometry={nodes.avaturn_body.geometry} material={materials.avaturn_body_material} skeleton={nodes.avaturn_body.skeleton} />
-        <skinnedMesh geometry={nodes.avaturn_hair_0.geometry} material={materials.avaturn_hair_0_material} skeleton={nodes.avaturn_hair_0.skeleton} />
-        <skinnedMesh geometry={nodes.avaturn_hair_1.geometry} material={materials.avaturn_hair_1_material} skeleton={nodes.avaturn_hair_1.skeleton} />
-        <skinnedMesh geometry={nodes.avaturn_shoes_0.geometry} material={materials.avaturn_shoes_0_material} skeleton={nodes.avaturn_shoes_0.skeleton} />
-        <skinnedMesh geometry={nodes.avaturn_look_0.geometry} material={materials.avaturn_look_0_material} skeleton={nodes.avaturn_look_0.skeleton} />
+        <skinnedMesh
+          name="EyeLeft"
+          geometry={nodes.EyeLeft.geometry}
+          material={materials.Wolf3D_Eye}
+          skeleton={nodes.EyeLeft.skeleton}
+          morphTargetDictionary={nodes.EyeLeft.morphTargetDictionary}
+          morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
+        />
+        <skinnedMesh
+          name="EyeRight"
+          geometry={nodes.EyeRight.geometry}
+          material={materials.Wolf3D_Eye}
+          skeleton={nodes.EyeRight.skeleton}
+          morphTargetDictionary={nodes.EyeRight.morphTargetDictionary}
+          morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
+        />
+        <skinnedMesh
+          name="Wolf3D_Head"
+          geometry={nodes.Wolf3D_Head.geometry}
+          material={materials.Wolf3D_Skin}
+          skeleton={nodes.Wolf3D_Head.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
+        />
+        <skinnedMesh
+          name="Wolf3D_Teeth"
+          geometry={nodes.Wolf3D_Teeth.geometry}
+          material={materials.Wolf3D_Teeth}
+          skeleton={nodes.Wolf3D_Teeth.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
+        />
+        <skinnedMesh
+          geometry={nodes.Wolf3D_Hair.geometry}
+          material={materials.Wolf3D_Hair}
+          skeleton={nodes.Wolf3D_Hair.skeleton}
+        />
+        <skinnedMesh
+          geometry={nodes.Wolf3D_Glasses.geometry}
+          material={materials.Wolf3D_Glasses}
+          skeleton={nodes.Wolf3D_Glasses.skeleton}
+        />
+        <skinnedMesh
+          name="Wolf3D_Outfit_Top"
+          geometry={nodes.Wolf3D_Outfit_Top.geometry}
+          material={materials.Wolf3D_Outfit_Top}
+          skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Outfit_Top.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Outfit_Top.morphTargetInfluences}
+        />
+        <skinnedMesh
+          name="Wolf3D_Outfit_Bottom"
+          geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
+          material={materials.Wolf3D_Outfit_Bottom}
+          skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Outfit_Bottom.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Outfit_Bottom.morphTargetInfluences}
+        />
+        <skinnedMesh
+          name="Wolf3D_Outfit_Footwear"
+          geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
+          material={materials.Wolf3D_Outfit_Footwear}
+          skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
+          morphTargetDictionary={
+            nodes.Wolf3D_Outfit_Footwear.morphTargetDictionary
+          }
+          morphTargetInfluences={
+            nodes.Wolf3D_Outfit_Footwear.morphTargetInfluences
+          }
+        />
+        <skinnedMesh
+          name="Wolf3D_Body"
+          geometry={nodes.Wolf3D_Body.geometry}
+          material={materials.Wolf3D_Body}
+          skeleton={nodes.Wolf3D_Body.skeleton}
+          morphTargetDictionary={nodes.Wolf3D_Body.morphTargetDictionary}
+          morphTargetInfluences={nodes.Wolf3D_Body.morphTargetInfluences}
+        />
       </group>
-    )
+    );
   }
   
-  useGLTF.preload('/avaturn_demo_avatar.glb')
+  
+  useGLTF.preload('/neha.glb')
+
+// function Scene() {
+//   const gltf = useLoader(GLTFLoader, '/Poimandres.gltf')
+//   return <primitive object={gltf.scene} />
+// }

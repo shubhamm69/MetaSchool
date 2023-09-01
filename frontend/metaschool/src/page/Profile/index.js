@@ -7,9 +7,14 @@ import Treasure from '../../lottie/treasure.json'
 import MagGlass from '../../lottie/magGlass.json'
 import Juggling from '../../lottie/juggling2.json'
 import BullsEye from '../../lottie/bullseye.json'
+import Navbar from '../../components/navbar'
 
 function Profile(props) {
     return (
+        <>
+         <div style={{width: '10vw', marginRight: '9vw'}}>
+             <Navbar/>
+        </div>
         <Layout title='Profile'>
             <div className='profileMain'>
                 <div>
@@ -51,6 +56,7 @@ function Profile(props) {
                 </div>
             </div>
         </Layout>
+        </>
     )
 }
 
