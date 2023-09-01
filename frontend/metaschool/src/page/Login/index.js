@@ -100,16 +100,7 @@ function Login() {
                 <div>
 
                         <div>
-                            <GoogleLogin clientId='972106384956-l3sm7gtprpf683ohqrqj7mql95uubt41.apps.googleusercontent.com'
-                            buttonText='Sign in and Authorize Calendar'
-                            onSuccess={responseGoogle}
-                            onFailure={responseError}
-                            cookiePolicy={'single_host_origin'}
-                            // This is important
-                            responseType='code'
-                            accessType='offline'
-                            scope='openid email profile https://www.googleapis.com/auth/calendar'
-                            />
+                            
                         
                     </div>
                 </div>
