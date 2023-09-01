@@ -15,15 +15,13 @@ import Navbar from './components/navbar';
 import Layout from './components/Layout';
 import Courses from './page/Courses';
 import VideoClass from './page/VideoClass';
-<<<<<<< HEAD
 import TeacherView from './page/TeacherView';
 import Course from './page/Course';
-=======
 import LMS from './page/LMS'
 import ChatBot from './components/chatbot'
 import Profile from './page/Profile';
+import Login from './page/Login';
 
->>>>>>> 7ed73525d883d7d3e8d42af1cdf96c69354bd96b
 
 function App() {
   
@@ -49,14 +47,16 @@ function App() {
       </Canvas> */}
       <div style={{display:"flex", width: "100vw", backgroundColor:"black"}}>
 
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <Courses /> */}
-      <TeacherView />
+      {/* <TeacherView /> */}
       {/* <Course /> */}
       {/* <VideoClass /> */}
       {/* <LMS/> */}
       {/* <ChatBot/> */}
-      {/* <Profile name='Suraj Shah' email='surajshah.bombay@gmail.com'/> */}
+      <Profile name='Suraj Shah' email='surajshah.bombay@gmail.com'/>
+      {/* <Login/> */}
+      
       </div>
     </div>
   );

@@ -1178,4 +1178,60 @@ h2{
 
 .profileMain{
   display: flex;
+  width: 100vw;
+}
+
+.badges{
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: start;
+}
+
+/* Logine Page */
+.loginMain{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60vw;
+  
+}
+
+/* Badge Styles */
+.badge{
+  border-radius: 10px;
+  padding: .5vh 1vw .5vh .3vw;
+  width: 15vw;
+  height: 14vh;
+  background: rgba( 98, 93, 93, 0.35 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4.5px );
+  display: flex;
+  flex-direction: row;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.badgeText{
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 10vw;
+}
+
+.badgesMain{
+  padding: 1vh 2vw;
 }
