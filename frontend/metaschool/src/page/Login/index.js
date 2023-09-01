@@ -35,7 +35,7 @@ function Login() {
                                 [0, 2, 2]
                             }
                             intensity={10}/>
-                        <Pakan/>
+                        <Model/>
                     </Suspense>
                     <OrbitControls/>
                     <CameraPositionLogger event='mousedown'/>
@@ -120,121 +120,140 @@ function Login() {
 
 export default Login
 
-function Pakan(props) {
-    const {nodes, materials} = useGLTF('/pakan.glb')
-    return (
-        <group {...props}
-            dispose={null}>
-            <group rotation={
-                    [
-                        -Math.PI / 2,
-                        0,
-                        0
-                    ]
-                }
-                scale={0.015}>
-                <group rotation={
-                    [
-                        Math.PI / 2,
-                        0,
-                        0
-                    ]
-                }>
-                    <group scale={100}>
-                        <mesh geometry={
-                                nodes.pakanStatue1_beard_rigAnimationPakanPxrDisney1SG_0.geometry
-                            }
-                            material={
-                                materials.rigAnimationPakanPxrDisney1SG
-                            }/>
-                        <mesh geometry={
-                                nodes.pakanStatue1_beard_initialShadingGroup_0.geometry
-                            }
-                            material={
-                                materials.initialShadingGroup
-                            }/>
-                    </group>
-                    <mesh geometry={
-                            nodes.pakanStatue1_table001_basisdesert_0.geometry
-                        }
-                        material={
-                            materials.basisdesert
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.pakanStatue1_eyes001_eyesglass_0.geometry
-                        }
-                        material={
-                            materials.eyesglass
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.pakanStatue1_Scarf001_scarf_02_0.geometry
-                        }
-                        material={
-                            materials.scarf_02
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.pakanStatue1_head_head_0.geometry
-                        }
-                        material={
-                            materials.head
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.pakanStatue1_table_basis_0.geometry
-                        }
-                        material={
-                            materials.basis
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.staff_pakanStatue1_staff_0.geometry
-                        }
-                        material={
-                            materials.staff
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.pakanStatue1_Scarf_scarf_0.geometry
-                        }
-                        material={
-                            materials.scarf
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.pakanStatue1_Cloths_Clothes_0.geometry
-                        }
-                        material={
-                            materials.Clothes
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.pakanStatue1_eyes_eyes_0.geometry
-                        }
-                        material={
-                            materials.eyes
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.pakanStatue1_accessories_accessories_0.geometry
-                        }
-                        material={
-                            materials.accessories
-                        }
-                        scale={100}/>
-                    <mesh geometry={
-                            nodes.pakanStatue1_Body_Body_0.geometry
-                        }
-                        material={
-                            materials.Body
-                        }
-                        scale={100}/>
-                </group>
-            </group>
-        </group>
-    )
-}
+// function Pakan(props) {
 
-useGLTF.preload('/pakan.glb')
+//     const {nodes, materials} = useGLTF('/pakan.glb')
+//     return (
+//         <group {...props}
+//             dispose={null}>
+//             <group rotation={
+//                     [
+//                         -Math.PI / 2,
+//                         0,
+//                         0
+//                     ]
+//                 }
+//                 scale={0.015}>
+//                 <group rotation={
+//                     [
+//                         Math.PI / 2,
+//                         0,
+//                         0
+//                     ]
+//                 }>
+//                     <group scale={100}>
+//                         <mesh geometry={
+//                                 nodes.pakanStatue1_beard_rigAnimationPakanPxrDisney1SG_0.geometry
+//                             }
+//                             material={
+//                                 materials.rigAnimationPakanPxrDisney1SG
+//                             }/>
+//                         <mesh geometry={
+//                                 nodes.pakanStatue1_beard_initialShadingGroup_0.geometry
+//                             }
+//                             material={
+//                                 materials.initialShadingGroup
+//                             }/>
+//                     </group>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_table001_basisdesert_0.geometry
+//                         }
+//                         material={
+//                             materials.basisdesert
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_eyes001_eyesglass_0.geometry
+//                         }
+//                         material={
+//                             materials.eyesglass
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_Scarf001_scarf_02_0.geometry
+//                         }
+//                         material={
+//                             materials.scarf_02
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_head_head_0.geometry
+//                         }
+//                         material={
+//                             materials.head
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_table_basis_0.geometry
+//                         }
+//                         material={
+//                             materials.basis
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.staff_pakanStatue1_staff_0.geometry
+//                         }
+//                         material={
+//                             materials.staff
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_Scarf_scarf_0.geometry
+//                         }
+//                         material={
+//                             materials.scarf
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_Cloths_Clothes_0.geometry
+//                         }
+//                         material={
+//                             materials.Clothes
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_eyes_eyes_0.geometry
+//                         }
+//                         material={
+//                             materials.eyes
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_accessories_accessories_0.geometry
+//                         }
+//                         material={
+//                             materials.accessories
+//                         }
+//                         scale={100}/>
+//                     <mesh geometry={
+//                             nodes.pakanStatue1_Body_Body_0.geometry
+//                         }
+//                         material={
+//                             materials.Body
+//                         }
+//                         scale={100}/>
+//                 </group>
+//             </group>
+//         </group>
+//     )
+// }
+
+
+
+// useGLTF.preload('/pakan.glb')
+
+function Model(props) {
+    const { nodes, materials } = useGLTF('/avaturn_demo_avatar.glb')
+    return (
+      <group {...props} dispose={null}>
+        <primitive object={nodes.Hips} />
+        <skinnedMesh geometry={nodes.avaturn_body.geometry} material={materials.avaturn_body_material} skeleton={nodes.avaturn_body.skeleton} />
+        <skinnedMesh geometry={nodes.avaturn_hair_0.geometry} material={materials.avaturn_hair_0_material} skeleton={nodes.avaturn_hair_0.skeleton} />
+        <skinnedMesh geometry={nodes.avaturn_hair_1.geometry} material={materials.avaturn_hair_1_material} skeleton={nodes.avaturn_hair_1.skeleton} />
+        <skinnedMesh geometry={nodes.avaturn_shoes_0.geometry} material={materials.avaturn_shoes_0_material} skeleton={nodes.avaturn_shoes_0.skeleton} />
+        <skinnedMesh geometry={nodes.avaturn_look_0.geometry} material={materials.avaturn_look_0_material} skeleton={nodes.avaturn_look_0.skeleton} />
+      </group>
+    )
+  }
+  
+  useGLTF.preload('/avaturn_demo_avatar.glb')

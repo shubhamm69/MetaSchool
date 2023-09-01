@@ -55,9 +55,9 @@ function App() {
       {/* <VideoClass /> */}
       {/* <LMS/> */}
       {/* <ChatBot/> */}
-      <Profile name='Suraj Shah' email='surajshah.bombay@gmail.com'/>
-      {/* <Login/> */}
-      <Quiz />
+      {/* <Profile name='Suraj Shah' email='surajshah.bombay@gmail.com'/> */}
+      <Login/>
+      {/* <Quiz /> */}
       </div>
     </div>
   );
