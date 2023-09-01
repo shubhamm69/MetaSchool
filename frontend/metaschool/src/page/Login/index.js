@@ -3,12 +3,14 @@ import {Canvas} from '@react-three/fiber'
 import {Suspense} from 'react'
 import {useGLTF, useAnimations, OrbitControls, useScroll} from '@react-three/drei'
 import CameraPositionLogger from '../../helpers/CameraPosition'
+import {GoogleLogin} from 'react-google-login'
+import axios from 'axios';
 
 
 function Login() {
     const [module, setModule] = useState("");
     const [wid, setWidth] = useState(0);
-    
+
 
     return (
         <div className='loginMain'>
@@ -93,6 +95,23 @@ function Login() {
                         {marginBottom: 5}
                     }>Password:</h5>
                     <input type='password' name='password'/>
+                </div>
+                <p>Or</p>
+                <div>
+
+                        <div>
+                            <GoogleLogin clientId='972106384956-l3sm7gtprpf683ohqrqj7mql95uubt41.apps.googleusercontent.com'
+                            buttonText='Sign in and Authorize Calendar'
+                            onSuccess={responseGoogle}
+                            onFailure={responseError}
+                            cookiePolicy={'single_host_origin'}
+                            // This is important
+                            responseType='code'
+                            accessType='offline'
+                            scope='openid email profile https://www.googleapis.com/auth/calendar'
+                            />
+                        
+                    </div>
                 </div>
             </div>
         </div>

@@ -21,6 +21,7 @@ import LMS from './page/LMS'
 import ChatBot from './components/chatbot'
 import Profile from './page/Profile';
 import Login from './page/Login';
+import Quiz from './page/Quiz';
 
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
       {/* <ChatBot/> */}
       <Profile name='Suraj Shah' email='surajshah.bombay@gmail.com'/>
       {/* <Login/> */}
-      
+      <Quiz />
       </div>
     </div>
   );

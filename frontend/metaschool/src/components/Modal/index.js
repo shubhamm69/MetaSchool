@@ -1,6 +1,6 @@
 export default function Modal(props) {
     return (
-        <div className="modal">
+        <div className="modal" style={{...props.style}}>
             <div>
                 <div className="modalHeader">
                     {props.title}
