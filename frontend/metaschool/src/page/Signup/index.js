@@ -1,29 +1,33 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../Firebase";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { useGLTF, OrbitControls } from "@react-three/drei";
+import { auth } from "../../Firebase";
 
-const Login = () => {
+const Signup = () => {
   const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onLogin = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
+
+    await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/home");
         console.log(user);
+        navigate("/courses");
+        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        // ..
       });
   };
 
@@ -141,40 +145,40 @@ const Login = () => {
         <main className="login">
           <section>
             <div>
-              <p> MetaSchool </p>
-              <form>
-                <div>
-                  <label htmlFor="email-address">Email address</label>
-                  <input
-                    id="email-address"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="Email address"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
+              <div>
+                <p> MetaSchool </p>
+                <form>
+                  <div>
+                    <label htmlFor="email-address">Email address</label>
+                    <input
+                      type="email"
+                      label="Email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      placeholder="Email address"
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="password">Password</label>
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    required
-                    placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-
-                <div>
-                  <button onClick={onLogin}>Login</button>
-                </div>
-              </form>
-
-              <p className="text-sm text-white text-center">
-                No account yet? <a href="/signup">Sign up</a>
-              </p>
+                  <div>
+                    <label htmlFor="password">Password</label>
+                    <input
+                      type="password"
+                      label="Create password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      placeholder="Password"
+                    />
+                  </div>
+                  <button className="bg-" type="submit" onClick={onSubmit}>
+                    Sign up
+                  </button>
+                </form>
+                <p>
+                  Already have an account? <a href="/">Sign in</a>
+                </p>
+              </div>
             </div>
           </section>
         </main>
@@ -183,7 +187,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
 
 export function Model(props) {
   const { nodes, materials } = useGLTF("/avaturn_demo_avatar.glb");

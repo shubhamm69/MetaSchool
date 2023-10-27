@@ -26,12 +26,17 @@ import Login from './page/Login';
 import Quiz from './page/Quiz';
 import AvatarMaker from './page/AvatarMaker';
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
+import Signup from './page/Signup';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login/>,
+  },
+  {
+    path: "/signup",
+    element: <Signup/>,
   },
   {
     path: "/course",
